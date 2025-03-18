@@ -1,0 +1,32 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Read the result from the file
+PROJECT_ROOT=$(git rev-parse --show-toplevel)
+python3 "$PROJECT_ROOT/detect_breaking_changes.py"
+
+RESULT_FILE="$PROJECT_ROOT/breaking_change_check.txt"
+
+if [ -f "$RESULT_FILE" ]; then
+  result=$(cat $RESULT_FILE)
+
+  if [ "$result" = "YES" ]; then
+    # If a breaking change is detected, check the commit message
+#    commit_message="hello"
+    commit_message=$(cat "$1")
+
+    if ! echo "$commit_message" | grep -q 'BREAKING'; then
+      echo ""
+      echo "❌ Commit rejected: Breaking change detected but 'BREAKING' keyword is missing."
+      echo "👉 Please add 'BREAKING' to your commit message."
+      echo ""
+      exit 1
+    fi
+  fi
+
+  # Clean up the file after reading
+  rm -f "$RESULT_FILE"
+fi
+
+# Run commitlint to enforce conventional commit format
+npx --no-install commitlint --edit "$1"
