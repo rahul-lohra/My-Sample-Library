@@ -14,6 +14,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+          token: ${{ secrets.GH_TOKEN }} # ✅ Use GitHub token for push access
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:

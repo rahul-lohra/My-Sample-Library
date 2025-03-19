@@ -1,5 +1,6 @@
 module.exports = {
   branches: ['main'], // Adjust if you're using a different branch name
+  repositoryUrl: 'https://github.com/rahul-lohra/My-Sample-Library.git',
   plugins: [
     '@semantic-release/commit-analyzer', // Analyze commit messages
     '@semantic-release/release-notes-generator', // Generate release notes
