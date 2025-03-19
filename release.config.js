@@ -4,12 +4,13 @@ module.exports = {
   plugins: [
     '@semantic-release/commit-analyzer', // Analyze commit messages
     '@semantic-release/release-notes-generator', // Generate release notes
-    '@semantic-release/changelog', // Update the CHANGELOG.md file
+//    '@semantic-release/changelog', // Update the CHANGELOG.md file
     '@semantic-release/github', // Create a GitHub release
     [
       '@semantic-release/git',
       {
-        assets: ['CHANGELOG.md', 'gradle.properties'], // Files to commit
+//        assets: ['CHANGELOG.md', 'gradle.properties'], // Files to commit
+        assets: ['gradle.properties'], // Files to commit
         message: 'chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}',
       },
     ],
