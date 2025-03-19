@@ -13,5 +13,4 @@ module.exports = {
       },
     ],
   ],
-  dryRun: true, // Set to true to test your configuration
 };
