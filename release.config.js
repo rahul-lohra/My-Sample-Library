@@ -4,7 +4,7 @@ module.exports = {
   plugins: [
     '@semantic-release/commit-analyzer', // Analyze commit messages
     '@semantic-release/release-notes-generator', // Generate release notes
-//    '@semantic-release/changelog', // Update the CHANGELOG.md file
+    '@semantic-release/changelog', // Update the CHANGELOG.md file
     '@semantic-release/github', // Create a GitHub release
     [
       '@semantic-release/git',
@@ -14,5 +14,5 @@ module.exports = {
       },
     ],
   ],
-  dryRun: true, // Set to true to test your configuration
+  dryRun: false, // Set to true to dump the change logs and version on terminal
 };
