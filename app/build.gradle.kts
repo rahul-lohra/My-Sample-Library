@@ -67,10 +67,6 @@ publishing {
     }
 }
 
-
-
-
-
 tasks.register("updateVersion") {
     doLast {
         val version = project.version
