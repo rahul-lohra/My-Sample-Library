@@ -22,7 +22,7 @@ publishing {
         create<MavenPublication>("release") {
             groupId = "com.rahullohra" // Replace with your group ID (e.g., com.example)
             artifactId = "my-sample-library" // Replace with your artifact ID (e.g., my-sdk)
-            version = project.properties["VERSION"] as String // Use the project's version
+            version = project.properties["VERSION_NAME"] as String // Use the project's version
 
             afterEvaluate {
                 from(components["release"])
