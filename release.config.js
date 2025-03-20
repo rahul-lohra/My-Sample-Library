@@ -11,7 +11,7 @@ module.exports = {
       {
         "prepareCmd":
           "./gradlew updateVersionProperties -PnewVersionName=${nextRelease.version} -PnewVersionCode=${nextRelease.version}",
-          "publishCmd": "./gradlew publishToMavenCentral" //replace with your publish task
+          "publishCmd": "./gradlew publishReleasePublicationToMavenRepository" //replace with your publish task
 
       }
     ],
