@@ -7,6 +7,15 @@ module.exports = {
 //    '@semantic-release/changelog', // Update the CHANGELOG.md file
     '@semantic-release/github', // Create a GitHub release
     [
+      '@semantic-release/exec',
+      {
+        "prepareCmd":
+          "./gradlew updateVersionProperties -PnewVersionName=${nextRelease.version} -PnewVersionCode=${nextRelease.version}",
+          "publishCmd": "./gradlew publishToMavenCentral" //replace with your publish task
+
+      }
+    ],
+    [
       '@semantic-release/git',
       {
 //        assets: ['CHANGELOG.md', 'gradle.properties'], // Files to commit
